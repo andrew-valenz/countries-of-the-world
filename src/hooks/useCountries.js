@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { fetchCountries } from '../services/fetchCountries.js';
 
-export function useFlags() {
-  const [flags, setFlags] = useState([]);
+export function useCountries() {
+  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const resp = await fetchCountries();
-      setFlags(resp);
+      setCountries(resp);
     };
     fetchData();
   }, []);
-  return flags;
+  return countries;
 }

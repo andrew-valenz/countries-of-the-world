@@ -1,14 +1,14 @@
-import { useFlags} from '../../hooks/useFlags.js';
-import { FlagCard } from '../FlagCard/FlagCard.js';
+import { useCountries } from '../../hooks/useCountries.js';
+import CountryCard from '../CountryCard/CountryCard.js';
 
 export default function Main() {
-    const countries = useFlags();
+  const countries = useCountries();
 
-    return (
-        <main>
-            {countries.map((country) => (
-                <FlagCard key={country.name} {...country} />
-            ))}
-        </main>
-    );
+  return (
+    <main>
+      {countries.map((country) => (
+        <CountryCard key={country.name} {...country} />
+      ))}
+    </main>
+  );
 }
