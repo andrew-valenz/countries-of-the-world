@@ -6,10 +6,14 @@ export function useCountries() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const resp = await fetchCountries();
-      setCountries(resp);
+      try {
+        const resp = await fetchCountries();
+        setCountries(resp);
+      } catch (e) {
+        setError('Uh oh, dis bwoke! :(');
+      }
     };
     fetchData();
   }, []);
-  return countries;
+  return { countries, error };
 }
